@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:image_search_app/data/remote/core/pretty_dio_logger.dart';
 
 import 'dio_interceptors.dart';
 import 'endpoints.dart';
@@ -18,7 +17,6 @@ class DioClient {
 
     dio.interceptors.addAll({
       DioInterceptors(dio: dio),
-      PrettyDioLogger(),
     });
 
     return dio;

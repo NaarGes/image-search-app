@@ -46,4 +46,6 @@ class Photo {
     data['isfamily'] = isFamily;
     return data;
   }
+
+  String get imageUrl => 'https://live.staticflickr.com/$server/${id}_${secret}_w.jpg';
 }

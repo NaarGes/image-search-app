@@ -18,6 +18,9 @@ class SearchRepository {
         'format': 'json',
         'nojsoncallback': 1,
       });
+      if (response.data['stat'] != 'ok') {
+        throw Exception(response.data['message'] ?? 'Something Broke!');
+      }
       return SearchResult.fromJson(response.data);
     } catch (e) {
       rethrow;

@@ -4,6 +4,7 @@ import 'package:image_search_app/cubit/search/search_cubit.dart';
 import 'package:image_search_app/data/remote/model/search_result.dart';
 import 'package:image_search_app/ui/component/app_search_bar.dart';
 import 'package:image_search_app/ui/component/loading.dart';
+import 'package:image_search_app/ui/component/photo_tile.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
@@ -62,14 +63,9 @@ class SearchPage extends StatelessWidget {
   Widget _buildResultList(SearchResult result) {
     return GridView.count(
       crossAxisCount: 2,
-      children: result.photos?.photo
-              ?.map(
-                (photo) => Container(
-                  child: Text(photo.title ?? 'No Title'),
-                ),
-              )
-              .toList() ??
-          [],
+      mainAxisSpacing: 16,
+      crossAxisSpacing: 16,
+      children: result.photos?.photo?.map((photo) => PhotoTile(photo: photo)).toList() ?? [],
     );
   }
 }
