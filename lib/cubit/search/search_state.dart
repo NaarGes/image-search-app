@@ -15,12 +15,12 @@ class SearchLoading extends SearchState {
 }
 
 class SearchLoaded extends SearchState {
-  final List<dynamic> searchResults;
+  final SearchResult searchResult;
 
-  const SearchLoaded({required this.searchResults});
+  const SearchLoaded({required this.searchResult});
 
   @override
-  List<Object> get props => [searchResults];
+  List<Object> get props => [searchResult];
 }
 
 class SearchError extends SearchState {

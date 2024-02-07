@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_search_app/cubit/search/search_cubit.dart';
+import 'package:image_search_app/data/remote/model/search_result.dart';
 import 'package:image_search_app/ui/component/app_search_bar.dart';
 import 'package:image_search_app/ui/component/loading.dart';
 
@@ -33,7 +34,7 @@ class SearchPage extends StatelessWidget {
                       final error = state.exception;
                       return _buildError(error);
                     } else if (state is SearchLoaded) {
-                      List<dynamic> result = state.searchResults;
+                      final SearchResult result = state.searchResult;
                       return _buildResultList(result);
                     } else {
                       return const SizedBox();
@@ -58,9 +59,17 @@ class SearchPage extends StatelessWidget {
     );
   }
 
-  Widget _buildResultList(List<dynamic> result) {
-    return ListView.builder(itemBuilder: (context, index) {
-      return const SizedBox();
-    });
+  Widget _buildResultList(SearchResult result) {
+    return GridView.count(
+      crossAxisCount: 2,
+      children: result.photos?.photo
+              ?.map(
+                (photo) => Container(
+                  child: Text(photo.title ?? 'No Title'),
+                ),
+              )
+              .toList() ??
+          [],
+    );
   }
 }
