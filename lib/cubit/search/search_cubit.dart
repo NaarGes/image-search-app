@@ -23,4 +23,8 @@ class SearchCubit extends Cubit<SearchState> {
       debugPrint(e.toString());
     }
   }
+
+  void clear() {
+    emit(SearchInitial());
+  }
 }

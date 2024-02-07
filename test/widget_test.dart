@@ -7,13 +7,19 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:image_search_app/app.dart';
+import 'package:image_search_app/data/remote/core/dio_client.dart';
+import 'package:image_search_app/data/remote/repository/search_repository.dart';
 
-import 'package:image_search_app/main.dart';
+import 'package:image_search_app/util/app_router.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const App());
+    await tester.pumpWidget(App(
+      router: AppRouter(),
+      searchRepository: SearchRepository(DioClient()),
+    ));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

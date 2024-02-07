@@ -1,0 +1,1 @@
+typedef SearchBarSubmitCallback = Function(String);

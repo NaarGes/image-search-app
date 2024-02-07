@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:image_search_app/app.dart';
+import 'package:image_search_app/data/remote/core/dio_client.dart';
+import 'package:image_search_app/data/remote/repository/search_repository.dart';
+import 'package:image_search_app/util/app_router.dart';
 
 void main() {
-  runApp(const App());
+  _init();
+  runApp(App(
+    router: AppRouter(),
+    searchRepository: SearchRepository(DioClient()),
+  ));
 }
 
-
-class App extends StatelessWidget {
-  const App({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp();
-  }
+void _init() {
+  WidgetsFlutterBinding.ensureInitialized();
 }
