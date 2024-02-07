@@ -37,8 +37,13 @@ class DioExceptions implements Exception {
   }
 
   String _handleError(int? statusCode, dynamic error) {
-    // TODO handle different status codes here and return related message, e.g
-    if (statusCode == 401) {}
+    if (statusCode == 401) {
+      // TODO Logout user
+      return 'UnAuthenticated!';
+    }
+    if (statusCode == 404) {
+      return 'Not Found!';
+    }
 
     return error;
   }

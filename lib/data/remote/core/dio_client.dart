@@ -12,6 +12,7 @@ class DioClient {
       receiveTimeout: Endpoints.receiveTimeout,
       connectTimeout: Endpoints.connectionTimeout,
       sendTimeout: Endpoints.sendTimeout,
+      responseType: ResponseType.json,
     ));
 
     dio.interceptors.addAll({
