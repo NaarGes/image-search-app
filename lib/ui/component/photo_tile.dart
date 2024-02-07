@@ -24,12 +24,15 @@ class PhotoTile extends StatelessWidget {
           right: 0,
           left: 0,
           child: Container(
-            padding: const EdgeInsets.fromLTRB(8, 16, 8, 4),
+            padding: const EdgeInsets.fromLTRB(8, 24, 8, 4),
             decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [Colors.white.withOpacity(0), Colors.white])),
+              borderRadius: BorderRadius.circular(4),
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Colors.white.withOpacity(0), Colors.white.withOpacity(0.9)],
+              ),
+            ),
             child: Text(
               photo.title ?? 'No Title',
               style: Theme.of(context).textTheme.bodySmall,
@@ -37,7 +40,7 @@ class PhotoTile extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
           ),
-        )
+        ),
       ],
     );
   }

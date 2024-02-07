@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:image_search_app/data/remote/model/search_result.dart';
 import 'package:image_search_app/data/remote/repository/search_repository.dart';

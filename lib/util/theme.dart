@@ -4,7 +4,9 @@ class Themes {
   static ThemeData lightThemeBuilder(BuildContext context) => ThemeData(
         brightness: Brightness.light,
         colorScheme: const ColorScheme.light(),
-        textTheme: const TextTheme(bodySmall: TextStyle(fontWeight: FontWeight.w600)),
+        textTheme: const TextTheme(
+          bodySmall: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+        ),
         searchBarTheme: SearchBarThemeData(
           backgroundColor: MaterialStateProperty.all(
             Colors.grey[300],
