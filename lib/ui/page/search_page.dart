@@ -19,8 +19,7 @@ class SearchPage extends StatelessWidget {
                 onSubmitted: (String value) {
                   context.read<SearchCubit>().search(value);
                 },
-                onTap: () {
-                  // TODO use it on clear button
+                onClear: () {
                   context.read<SearchCubit>().clear();
                 },
               ),
